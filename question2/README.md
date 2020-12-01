@@ -1,0 +1,2 @@
+Pour l'ouvrir il vous faut le logiciel mysqlworkbench.
+Pour l'utilisateur c'est voulu que la position de l'utilisateur ne soit pas obligatoire car quand il se crée un compte il n'a pas forcement la postion d'activer, et du coup la rendre obligatoire pourrais rendre ça frustrant pour un utilisateur.

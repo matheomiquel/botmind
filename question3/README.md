@@ -1,0 +1,1 @@
+Pour lancer les tests utiliser la commande "npm run test"

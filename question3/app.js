@@ -1,0 +1,52 @@
+/*import express from "express"
+const app = express()
+
+app.post('/message', (req, res) => {
+    res.json('bonjour')
+})
+
+app.listen(3000, () => {
+    console.log("PORT 3000")
+})
+
+export {
+    app
+}*/
+
+
+
+import express from "express"
+import bodyParser from 'body-parser'
+import fileUpload from "express-fileupload"
+const app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
+app.use(fileUpload({
+    limits: {
+        fileSize: 50 * 1024 * 1024
+    },
+}));
+
+
+app.post('/message', function (req, res) {
+    if (req.body.message === "Comment vas-tu")
+        res.json({
+            "response": "Très bien et vous ?",
+            "quickReply": ["Je vais bien,merci", "Non, ça ne va pas"]
+        })
+    else if (!!req.files)
+        res.json("Je ne sais pas traiter ce type de demande")
+    else
+        res.json(req.body.message)
+})
+
+
+app.listen(3000, () => {
+    console.log("PORT 3000")
+})
+
+export {
+    app
+}
